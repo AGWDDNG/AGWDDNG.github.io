@@ -1,0 +1,275 @@
+/* Impostazioni di base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stili per schermi più piccoli */
+@media (max-width: 768px) {
+  .section-flex {
+    flex-direction: column; /* Le colonne diventano righe verticali */
+  }
+
+  .reverse-layout {
+    flex-direction: column; /* Override del row-reverse su schermi piccoli */
+  }
+
+  .image-container, .text-container {
+    padding: 0;
+    margin-bottom: 20px; /* Spazio tra immagine e testo */
+  }
+
+  .section-image {
+    width: 100%; /* L'immagine occupa tutto lo spazio disponibile */
+    border-radius: 10px; /* Arrotonda gli angoli dell'immagine */
+  }
+
+  .section-flex {
+    padding: 20px; /* Riduce il padding interno per schermi piccoli */
+  }
+}
+
+/* Stili per schermi più grandi */
+@media (min-width: 768px) {
+
+  .section-flex {
+    flex-direction: row;
+  }
+
+  .reverse-layout {
+    flex-direction: row-reverse; /* Ripristina row-reverse su schermi più grandi */
+  }
+
+  .header-content {
+    flex-direction: row; /* Disposizione orizzontale su schermi più grandi */
+    justify-content: center; /* Centra i pulsanti */
+    flex-wrap: wrap; /* I pulsanti andranno a capo se necessario */
+  }
+
+  .cta-button {
+    margin: 0 10px; /* Spaziatura orizzontale tra i pulsanti su schermi grandi */
+  }
+}
+
+body, html {
+  font-family: 'Arial', sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Stile per l'header */
+#home {
+  height: 100vh; /* Altezza dello schermo */
+  background-image: url('../images/gargonza.jpg'); /* Assicurati che il percorso sia corretto */
+  background-size: cover; /* L'immagine copre tutta l'area */
+  background-position: center; /* L'immagine è centrata */
+  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Per gestire il contenuto interno */
+  text-align: center;
+}
+
+#home::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+/* Contenuto dell'header (nomi e pulsante) */
+.header-content {
+  z-index: 2; /* Assicurati che il contenuto sia sopra il gradiente */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra il contenuto */
+  color: white;
+}
+
+.header-content h1 {
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Ombra per far risaltare il testo */
+}
+
+.header-content p {
+  display: flex;
+  flex-direction: column; /* Disposizione verticale di default */
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px; /* Aggiungi margine sotto il paragrafo */
+}
+
+/* Stile per il pulsante */
+
+.cta-button {
+  display: inline-block;
+  background-color: #8FBC8F; /* Verde salvia */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px; /* Spaziatura tra i pulsanti */
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background-color: #6B8E23; /* Colore verde oliva più scuro al passaggio del mouse */
+  transform: translateY(-5px); /* Effetto di sollevamento */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Sezioni generali */
+section {
+  min-height: 100vh; /* L'altezza minima è uguale all'altezza del viewport */
+  display: flex; /* Per centrare il contenuto */
+  align-items: center; /* Allinea il contenuto verticalmente */
+  justify-content: center; /* Allinea il contenuto orizzontalmente */
+}
+
+/* Sezioni con navigazione a frecce (freccia su e freccia giù) */
+.section-nav {
+  width: 100%; /* Adatta la larghezza al contenitore */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F0F8F0; /* Colore di sfondo */
+}
+
+/* Stile generale per le sezioni con layout a due colonne */
+.section-flex {
+  width: 100%; /* Adatta la larghezza al contenitore */
+  display: flex;
+  align-items: center; /* Centra verticalmente il contenuto */
+  justify-content: space-between;
+}
+
+/*.reverse-layout {*/
+/*  flex-direction: row-reverse; !* Inverte l'ordine degli elementi *!*/
+/*}*/
+
+.image-container {
+  flex: 1;
+}
+
+.section-image {
+  width: 100%; /* L'immagine occupa tutta la larghezza del contenitore */
+  height: auto; /* Mantiene le proporzioni */
+}
+
+.text-container {
+  flex: 1; /* Il testo occupa l'altra parte */
+  text-align: center;
+}
+
+/* Stile per il testo della sezione */
+.text-container h2 {
+  font-size: 2.5rem;
+  color: #556B2F;
+  margin-bottom: 20px;
+}
+
+.text-container p, .text-container ul {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.text-container ul {
+  list-style: none;
+}
+
+.text-container ul li {
+  margin-bottom: 10px;
+}
+
+
+/* Specifico per sezioni con sfondo bianco */
+#schedule, #rsvp{
+  background-color: #FFF;
+}
+
+/* Sezione RSVP */
+
+#rsvp form {
+  display: inline-block;
+  text-align: left;
+}
+
+#rsvp input {
+  display: block;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#rsvp button {
+  background-color: #8FBC8F;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#rsvp button:hover {
+  background-color: #6B8E23;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(107, 142, 35, 0.5); /* Verde salvia con opacità del 70% */
+  color: white;
+  border: none;
+  text-decoration: none;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none; /* Nascosto di default */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.fixed-button svg {
+  width: 24px;
+  height: 24px;
+  stroke: white; /* Colore dell'icona */
+}
+
+.fixed-button:hover {
+  background-color: rgba(107, 142, 35, 0.7); /* Verde salvia con opacità del 70% */
+  transform: translateY(-5px);
+}
