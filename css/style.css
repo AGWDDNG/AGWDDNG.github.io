@@ -308,6 +308,6 @@ footer {
 }
 
 .iban-names {
-  font-size: 0.6em; /* Puoi ridurre o aumentare il valore */
+  font-size: 0.5em; /* Puoi ridurre o aumentare il valore */
   color: #555; /* Grigio più tenue per eleganza (opzionale) */
 }
