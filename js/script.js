@@ -35,3 +35,16 @@ homeButton.addEventListener('click', () => {
   scrollToSection("#home");
   homeButton.style.display = 'none';
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var toggleButton = document.getElementById("iban-toggle-btn");
+  var ibanContainer = document.getElementById("iban-container");
+
+  toggleButton.addEventListener("click", function () {
+    if (ibanContainer.style.display === "none") {
+      ibanContainer.style.display = "block";
+    } else {
+      ibanContainer.style.display = "none";
+    }
+  });
+});
